@@ -1,2 +1,46 @@
-<h1>Blogs#index</h1>
-<p>Find me in app/views/blogs/index.html.erb</p>
+<div class="flash">
+	<%= flash[:create] %>
+	<%= flash[:notice_destroy] %>
+</div>
+
+<h1>Books</h1>
+<span><strong>Title</strong></span>
+<span><strong>Body</strong></span>
+<div class="table">
+
+<div class="blogs clearfix">
+	<% @blogs.each do |blog| %>
+	<p class="blog-title">
+		<%= blog.title %>
+	</p>
+	<p class="blog-body">
+		<%= blog.body %>
+	</p>
+	<%= link_to "Show", blog_path(blog) %>
+	<%= link_to "Edit", edit_blog_path(blog) %>
+	<%= link_to "Destroy", blog_path(blog), method: :delete %>
+	<!-- <a href= "/blogs/<%= @blog %>">Show</a>
+	<a href= "blogs/<%= @blog %>/edit">Edit</a>
+	<a href= /blog)>Destroy</a> -->
+	<% end %>
+</div>
+
+</div>
+<div>
+
+<h3>New Book</h3>
+
+<%= form_for(@blog) do |f| %>
+
+	<h4>Title</h4>
+	<%= f.text_field :title %>
+
+	<h4>Body</h4>
+	<%= f.text_area :body %>
+	<%= f.submit '投稿' %>
+
+<% end %>
+
+</div>
+
+

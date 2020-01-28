@@ -1,2 +1,15 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<div class="show">
+	<p><%= flash[:notice_update] %></p>
+	<p><strong>Title: </strong><%= @blog.title %></p>
+	<p><strong>Body: </strong><%= @blog.body %></p>
+</div>
+
+<%= link_to "Edit", edit_blog_path(@blog) %> |
+
+<%= link_to "Back", blogs_path %>
+
+<% if flash[:notice] %>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
